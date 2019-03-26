@@ -8,113 +8,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<!-- about module -->
-					<div class="col-md-3 text-center">
-						<div class="mz-module-about">
-							<i class="fa fa-briefcase ot-circle"></i>
-							<h3>Web Development</h3>
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-						</div>
-					</div>
-					<!-- end about module -->
-					<!-- about module -->
-					<div class="col-md-3 text-center">
-						<div class="mz-module-about">
-							<i class="fa fa-photo ot-circle"></i>
-							<h3>Visualisation</h3>
-							<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe</p>
-						</div>
-					</div>
-					<!-- end about module -->
-					<!-- about module -->
-					<div class="col-md-3 text-center">
-						<div class="mz-module-about">
-							<i class="fa fa-camera-retro ot-circle"></i>
-							<h3>Photography</h3>
-							<p>Accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-						</div>
-					</div>
-					<!-- end about module -->
-					<!-- about module -->
-					<div class="col-md-3 text-center">
-						<div class="mz-module-about">
-							<i class="fa fa-cube ot-circle"></i>
-							<h3>UI/UX Design</h3>
-							<p> Itaque earum rerum hic tenetur a sapiente, ut aut reiciendis maiores</p>
-						</div>
-					</div>
-					<!-- end about module -->
-				</div>
+				
 			</div>
 			<!-- /.container -->
 		</section>
-		<section >
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="skills-text">
-							<h2>WE`RE CREATIVE</h2>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.<br><br>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur?</p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<!-- skill bar item -->
-						<div class="skillbar-item">
-							<div class="skillbar-score">
-								<span class="score">90</span><span class="percent">%</span>
-							</div>
-							<div class="skillbar" data-percent="90%">
-								<h3>Web design</h3>
-								<div class="skillbar-bar">
-									<div class="skillbar-percent" style="width: 90%;">
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- skill bar item -->
-						<div class="skillbar-item">
-							<div class="skillbar-score">
-								<span class="score">80</span><span class="percent">%</span>
-							</div>
-							<div class="skillbar" data-percent="80%">
-								<h3>Development</h3>
-								<div class="skillbar-bar">
-									<div class="skillbar-percent" style="width: 80%;">
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- skill bar item -->
-						<div class="skillbar-item">
-							<div class="skillbar-score">
-								<span class="score">85</span><span class="percent">%</span>
-							</div>
-							<div class="skillbar" data-percent="85%">
-								<h3>Photography</h3>
-								<div class="skillbar-bar">
-									<div class="skillbar-percent" style="width: 85%;">
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- skill bar item -->
-						<div class="skillbar-item">
-							<div class="skillbar-score">
-								<span class="score">70</span><span class="percent">%</span>
-							</div>
-							<div class="skillbar" data-percent="70%">
-								<h3>Marketing</h3>
-								<div class="skillbar-bar">
-									<div class="skillbar-percent" style="width: 70%;">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		
 		<section class="overlay-dark bg-img1 dark-bg short-section">
 			<div class="container text-center">
 				<div class="row">
@@ -245,45 +143,7 @@
 			</div>
 			</div><!-- end container -->
 		</section>
-		<section>
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-center">
-						<div class="section-title">
-							<h2>Our Partners</h2>
-							<p>Mida sit una namet, cons uectetur adipiscing adon elit.</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 text-center">
-						<div class="owl-carousel">
-							<div class="item">
-								<div class="partner-logo"><img src="<?php echo base_url(); ?>public/images/demo/partners-1.png" alt="partners"></div>
-							</div>
-							<div class="item">
-								<div class="partner-logo"><img src="<?php echo base_url(); ?>public/images/demo/partners-2.png" alt="partners"></div>
-							</div>
-							<div class="item">
-								<div class="partner-logo"><img src="<?php echo base_url(); ?>public/images/demo/partners-3.png" alt="partners"></div>
-							</div>
-							<div class="item">
-								<div class="partner-logo"><img src="<?php echo base_url(); ?>public/images/demo/partners-4.png" alt="partners"></div>
-							</div>
-							<div class="item">
-								<div class="partner-logo"><img src="<?php echo base_url(); ?>public/images/demo/partners-5.png" alt="partners"></div>
-							</div>
-							<div class="item">
-								<div class="partner-logo"><img src="<?php echo base_url(); ?>public/images/demo/partners-6.png" alt="partners"></div>
-							</div>
-							<div class="item">
-								<div class="partner-logo"><img src="<?php echo base_url(); ?>public/images/demo/partners-7.png" alt="partners"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+
 		<section id="team" class="light-bg">
 			<div class="container">
 				<div class="row">
