@@ -1,5 +1,5 @@
 <section style="min-height: calc(100vh - 83px)" class="light-bg">
-	
+
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-offset-3 col-lg-6 text-center">
@@ -20,7 +20,7 @@
 	</div>
 
 	<div class="container">
-		
+
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#tab_courses" role="tab" data-toggle="tab">Cursos</a></li>
 			<li><a href="#tab_team" role="tab" data-toggle="tab">Equipe</a></li>
@@ -47,6 +47,7 @@
 					</table>
 				</div>
 			</div>
+
 			<div id="tab_team" class="tab-pane">
 				<div class="container-fluid">
 					<h2 class="text-center"><strong>Gerenciar Equipe</strong></h2>
@@ -65,6 +66,7 @@
 					</table>
 				</div>
 			</div>
+			
 			<div id="tab_user" class="tab-pane">
 				<div class="container-fluid">
 					<h2 class="text-center"><strong>Gerenciar Usuários</strong></h2>
@@ -86,3 +88,66 @@
 		</div>
 	</div>
 </section>
+
+<div id="modal_course" class="modal fade">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">x</button>
+				<h4 class="modal-title">Cursos</h4>
+			</div>
+
+			<div class="modal-body">
+				<form id="form_course">
+
+					<input id="course_id" name="course_id" hidden>
+
+					<div class="form-group">
+						<label class="col-lg-2 control-label">Nome</label>
+						<div class="col-lg-10">
+							<input id="course_name" name="course_name" class="form-control" maxlength="100">
+							<span class="help-block"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-2 control-label">Imagem</label>
+						<div class="col-lg-10">
+							<img id="course_img_path" src="" style="max-height: 400px; max-height: 400px">
+							<label class="btn btn-block btn-info">
+								<i class="fa fa-upload"></i>&nbsp;&nbsp;Importar imagem
+								<input type="file" id="btn_upload_course_img" accept="image/*" style="display: none;">
+							</label>
+							<input id="course_img" name="course_img" hidden>
+							<span class="help-block"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-2 control-label">Duração (h)</label>
+						<div class="col-lg-10">
+							<input type="number" step="0.1" id="course_duration" name="course_duration" class="form-control">
+							<span class="help-block"></span>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-lg-2 control-label">Descrição</label>
+						<div class="col-lg-10">
+							<textarea id="course_description" name="course_description" class="form-control"></textarea>
+							<span class="help-block"></span>
+						</div>
+					</div>
+
+					<div class="form-group text-center">
+						<button type="submit" id="btn_save_course" class="btn btn-primary">
+							<i class="fa fa-save"></i>&nbsp;&nbsp;Salvar
+						</button>
+						<span class="help-block"></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
