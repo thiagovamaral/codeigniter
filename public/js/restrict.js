@@ -54,4 +54,30 @@ $(function() {
 
 		return false;
 	});
+
+	$("#form_member").submit(function() {
+
+		$.ajax({
+			type: "POST",
+			url: BASE_URL + "restrict/ajax_save_member",
+			dataType: "json",
+			data: $(this).serialize(),
+			beforeSend: function() {
+				clearErrors();
+				$("#btn_save_member").siblings(".help-block").html(loadingImg("Verificando..."));
+			},
+			success: function(response) {
+				clearErrors();
+				if (response["status"]) {
+					$("#modal_member").modal("hide");
+					swal("Sucesso!","Membro salvo com sucesso!", "success");
+					dt_member.ajax.reload();
+				} else {
+					showErrorsModal(response["error_list"])
+				}
+			}
+		})
+
+		return false;
+	});
 })
