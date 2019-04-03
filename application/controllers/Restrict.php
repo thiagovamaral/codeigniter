@@ -478,4 +478,43 @@ class Restrict extends CI_Controller{
 
 		echo json_encode($json);
 	}
+
+	public function ajax_get_member_data() {
+
+		if (!$this->input->is_ajax_request()) {
+			exit("Nenhum acesso de script direto permitido!");
+		}
+
+		$json = array();
+		$json["status"] = 1;
+		$json["input"] = array();
+
+		$this->load->model("team_model");
+
+		$member_id = $this->input->post("member_id");
+		$data = $this->team_model->get_data($member_id)->result_array()[0];
+		$json["input"]["member_id"] = $data["member_id"];
+		$json["input"]["member_name"] = $data["member_name"];
+		$json["input"]["member_description"] = $data["member_description"];
+
+		$json["img"]["member_photo_path"] = base_url() . $data["member_photo"];
+
+		echo json_encode($json);
+	}
+
+	public function ajax_delete_member_data() {
+
+		if (!$this->input->is_ajax_request()) {
+			exit("Nenhum acesso de script direto permitido!");
+		}
+
+		$json = array();
+		$json["status"] = 1;
+
+		$this->load->model("team_model");
+		$member_id = $this->input->post("member_id");
+		$this->team_model->delete($member_id);
+
+		echo json_encode($json);
+	}
 }

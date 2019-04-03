@@ -194,6 +194,56 @@ $(function() {
 		}
 	});
 
+	function active_btn_member() {
+		
+		$(".btn-edit-member").click(function(){
+			$.ajax({
+				type: "POST",
+				url: BASE_URL + "restrict/ajax_get_member_data",
+				dataType: "json",
+				data: {"member_id": $(this).attr("member_id")},
+				success: function(response) {
+					clearErrors();
+					$("#form_member")[0].reset();
+					$.each(response["input"], function(id, value) {
+						$("#"+id).val(value);
+					});
+					$("#member_photo_path").attr("src", response["img"]["member_photo_path"]);
+					$("#modal_member").modal();
+				}
+			})
+		});
+
+		$(".btn-del-member").click(function(){
+			
+			member_id = $(this);
+			swal({
+				title: "Atenção!",
+				text: "Deseja deletar esse membro?",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#d9534f",
+				confirmButtonText: "Sim",
+				cancelButtontext: "Não",
+				closeOnConfirm: true,
+				closeOnCancel: true,
+			}).then((result) => {
+				if (result.value) {
+					$.ajax({
+						type: "POST",
+						url: BASE_URL + "restrict/ajax_delete_member_data",
+						dataType: "json",
+						data: {"member_id": member_id.attr("member_id")},
+						success: function(response) {
+							swal("Sucesso!", "Ação executada com sucesso", "success");
+							dt_member.ajax.reload();
+						}
+					})
+				}
+			})
+		});
+	}
+
 	var dt_member = $("#dt_team").DataTable({
 		"autoWidth": false,
 		"serverSide": true,
@@ -204,7 +254,10 @@ $(function() {
 		"columnDefs": [
 			{ targets: "no-sort", orderable: false },
 			{ targets: "dt-center", className: "dt-center" },
-		]
+		],
+		"drawCallback": function() {
+			active_btn_member();
+		}
 	});
 
 	var dt_user = $("#dt_users").DataTable({
