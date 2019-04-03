@@ -764,4 +764,7 @@ and (max-width : 480px) {
     margin-top: 7px;
     font-size: 20px;
 }
+.description {
+    font-size: 12px;
+}
 }
