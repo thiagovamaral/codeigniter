@@ -126,6 +126,56 @@ $(function() {
 		return false;
 	});
 
+	function active_btn_course() {
+		
+		$(".btn-edit-course").click(function(){
+			$.ajax({
+				type: "POST",
+				url: BASE_URL + "restrict/ajax_get_course_data",
+				dataType: "json",
+				data: {"course_id": $(this).attr("course_id")},
+				success: function(response) {
+					clearErrors();
+					$("#form_course")[0].reset();
+					$.each(response["input"], function(id, value) {
+						$("#"+id).val(value);
+					});
+					$("#course_img_path").attr("src", response["img"]["course_img_path"]);
+					$("#modal_course").modal();
+				}
+			})
+		});
+
+		$(".btn-del-course").click(function(){
+			
+			course_id = $(this);
+			swal({
+				title: "Atenção!",
+				text: "Deseja deletar esse curso?",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#d9534f",
+				confirmButtonText: "Sim",
+				cancelButtontext: "Não",
+				closeOnConfirm: true,
+				closeOnCancel: true,
+			}).then((result) => {
+				if (result.value) {
+					$.ajax({
+						type: "POST",
+						url: BASE_URL + "restrict/ajax_delete_course_data",
+						dataType: "json",
+						data: {"course_id": course_id.attr("course_id")},
+						success: function(response) {
+							swal("Sucesso!", "Ação executada com sucesso", "success");
+							dt_course.ajax.reload();
+						}
+					})
+				}
+			})
+		});
+	}
+
 	var dt_course = $("#dt_courses").DataTable({
 		
 		"autoWidth": false,
@@ -138,7 +188,10 @@ $(function() {
 		"columnDefs": [
 			{ targets: "no-sort", orderable: false },
 			{ targets: "dt-center", className: "dt-center" },
-		]
+		],
+		"drawCallback": function() {
+			active_btn_course();
+		}
 	});
 
 	var dt_member = $("#dt_team").DataTable({

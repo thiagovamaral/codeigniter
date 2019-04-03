@@ -438,4 +438,44 @@ class Restrict extends CI_Controller{
 
 		echo json_encode($json);
 	}
+
+	public function ajax_get_course_data() {
+
+		if (!$this->input->is_ajax_request()) {
+			exit("Nenhum acesso de script direto permitido!");
+		}
+
+		$json = array();
+		$json["status"] = 1;
+		$json["input"] = array();
+
+		$this->load->model("courses_model");
+
+		$course_id = $this->input->post("course_id");
+		$data = $this->courses_model->get_data($course_id)->result_array()[0];
+		$json["input"]["course_id"] = $data["course_id"];
+		$json["input"]["course_name"] = $data["course_name"];
+		$json["input"]["course_duration"] = $data["course_duration"];
+		$json["input"]["course_description"] = $data["course_description"];
+
+		$json["img"]["course_img_path"] = base_url() . $data["course_img"];
+
+		echo json_encode($json);
+	}
+
+	public function ajax_delete_course_data() {
+
+		if (!$this->input->is_ajax_request()) {
+			exit("Nenhum acesso de script direto permitido!");
+		}
+
+		$json = array();
+		$json["status"] = 1;
+
+		$this->load->model("courses_model");
+		$course_id = $this->input->post("course_id");
+		$this->courses_model->delete($course_id);
+
+		echo json_encode($json);
+	}
 }
