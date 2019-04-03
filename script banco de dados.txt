@@ -1,0 +1,31 @@
+CREATE SCHEMA `teste` ;
+
+use `teste`;
+
+CREATE TABLE `courses` (
+  `course_id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_name` varchar(100) NOT NULL,
+  `course_img` varchar(100) DEFAULT NULL,
+  `course_duration` decimal(3,1) NOT NULL,
+  `course_description` text,
+  PRIMARY KEY (`course_id`)
+);
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_login` varchar(30) NOT NULL,
+  `password_hash` varchar(255) NOT NULL,
+  `user_full_name` varchar(100) NOT NULL,
+  `user_email` varchar(100) NOT NULL,
+  PRIMARY KEY (`user_id`)
+);
+
+INSERT INTO `users` VALUES (1, 'thiago','$2y$10$jCR1npokSV1JsVwQ1qzLw.9Hbi3McyuBlcAKkprTum9Mgly.VNhSC','thiago','thiago@gmail.com');
+
+CREATE TABLE `team` (
+  `member_id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_name` varchar(100) NOT NULL,
+  `member_photo` varchar(100) DEFAULT NULL,
+  `member_description` text,
+  PRIMARY KEY (`member_id`)
+);
