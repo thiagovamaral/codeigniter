@@ -1,4 +1,4 @@
-<!-- Header -->
+		<!-- Header -->
 		<header>
 			<div class="container">
 				<div class="slider-container">
@@ -11,7 +11,7 @@
 			</div>
 		</header>
 
-<section id="about" class="light-bg">
+		<section id="about" class="light-bg">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">
@@ -29,34 +29,24 @@
 		<section class="overlay-dark bg-img1 dark-bg short-section">
 			<div class="container text-center">
 				<div class="row">
-					<div class="col-md-3 mb-sm-30">
+					<div class="col-md-offset-3 col-md-3 mb-sm-30">
 						<div class="counter-item">
-							<h2 data-count="x">x</h2>
-							<h6>instrutores</h6>
+							<a class="page-scroll" href="#course">
+								<h6>Cursos</h6>
+							</a>
 						</div>
 					</div>
 					<div class="col-md-3 mb-sm-30">
 						<div class="counter-item">
-							<h2 data-count="x">x</h2>
-							<h6>alunos</h6>
-						</div>
-					</div>
-					<div class="col-md-3 mb-sm-30">
-						<div class="counter-item">
-							<h2 data-count="x">x</h2>
-							<h6>cursos</h6>
-						</div>
-					</div>
-					<div class="col-md-3 mb-sm-30">
-						<div class="counter-item">
-							<h2 data-count="x">x</h2>
-							<h6>avaliações</h6>
+							<a class="page-scroll" href="#team">
+								<h6>Equipe</h6>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<section id="portfolio" class="light-bg">
+		<section id="course" class="light-bg">
 			<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -67,22 +57,41 @@
 				</div>
 			</div>
 			<div class="row">
-				<!-- start portfolio item -->
-				<div class="col-md-4">
-					<div class="ot-portfolio-item">
-						<figure class="effect-bubba">
-							<img src="<?php echo base_url(); ?>public/images/demo/portfolio-1.jpg" alt="img02" class="img-responsive" />
-							<figcaption>
-								<h2>Dean & Letter</h2>
-								<p>Branding, Design</p>
-								<a href="#" data-toggle="modal" data-target="#Modal-1">View more</a>
-							</figcaption>
-						</figure>
-					</div>
-				</div>
-				<!-- end portfolio item -->
 				
-			</div>
+				<?php 
+				if (!empty($courses)) {
+					foreach ($courses as $course) { ?>
+						<div class="col-md-4">
+							<div class="ot-portfolio-item">
+								<figure class="effect-bubba">
+									<img src="<?=base_url().$course["course_img"]?>" alt="img02" class="img-responsive center-block"/>
+									<figcaption>
+										<a href="#" data-toggle="modal" data-target="#course_<?=$course["course_id"]?>"></a>
+									</figcaption>
+								</figure>
+							</div>
+						</div>
+
+						<div class="modal fade" id="course_<?=$course["course_id"]?>" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="X"><span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title" id="Modal-label-1"><?=$course["course_name"]?></h4>
+									</div>
+									
+									<div class="modal-body">
+										<img src="<?=base_url().$course["course_img"]?>" alt="img01" class="img-responsive center-block" />
+										<div class="modal-works"><span>Duração: <?=$course["course_duration"]?> (h)</span></div>
+										<p><?=$course["course_description"]?></p>
+									</div>
+								</div>
+							</div>
+						</div>
+				<?php } // FOREACH
+				} // IF ?>
+				</div>
 			</div><!-- end container -->
 		</section>
 		<section id="team" class="light-bg">
@@ -96,22 +105,45 @@
 					</div>
 				</div>
 				<div class="row">
-					<!-- team member item -->
-					<div class="col-md-3">
-						<div class="team-item">
-							<div class="team-image">
-								<img src="<?php echo base_url(); ?>public/images/demo/author-2.jpg" class="img-responsive" alt="author">
+					<?php 
+					if (!empty($team)) {
+						foreach ($team as $member) { ?>
+
+							<div class="col-md-3">
+								<a href="#" data-toggle="modal" data-target="#member_<?=$member["member_id"]?>">
+									<div class="team-item">
+										<div class="team-image">
+											<img src="<?=base_url().$member["member_photo"]?>" class="img-responsive img-circle" alt="author">
+										</div>
+										<div class="team-text">
+											<h3><?=$member["member_name"]?></h3>
+										</div>
+									</div>
+								</a>
 							</div>
-							<div class="team-text">
-								<h3>TOM BEKERS</h3>
-								<div class="team-location">Sydney, Australia</div>
-								<div class="team-position">– CEO & Web Design –</div>
-								<p>Mida sit una namet, cons uectetur adipiscing adon elit. Aliquam vitae barasa droma.</p>
+
+							<div class="modal fade" id="member_<?=$member["member_id"]?>" tabindex="-1" role="dialog" aria-labelledby="Modal-label-1">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h4 class="modal-title" id="Modal-label-1"><?=$member["member_name"]?></h4>
+										</div>
+										
+										<div class="modal-body">
+											<img src="<?=base_url().$member["member_photo"]?>" alt="img01" class="img-responsive center-block" />
+											<p><?=$member["member_description"]?></p>
+										</div>
+										
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</div>
-					<!-- end team member item -->
-					
+					<?php } // FOREACH
+					} // IF ?>
 				</div>
 			</div>
 		</section>

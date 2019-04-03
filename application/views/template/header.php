@@ -55,7 +55,7 @@
 						<a class="page-scroll" href="<?php echo base_url(); ?>#about">Sobre</a>
 					</li>
 					<li>
-						<a class="page-scroll" href="<?php echo base_url(); ?>#portfolio">Cursos</a>
+						<a class="page-scroll" href="<?php echo base_url(); ?>#course">Cursos</a>
 					</li>
 					<li>
 						<a class="page-scroll" href="<?php echo base_url(); ?>#team">Equipe</a>
