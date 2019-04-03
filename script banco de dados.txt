@@ -1,6 +1,6 @@
-CREATE SCHEMA `teste` ;
+CREATE SCHEMA `alfahelix` ;
 
-use `teste`;
+use `alfahelix`;
 
 CREATE TABLE `courses` (
   `course_id` int(11) NOT NULL AUTO_INCREMENT,
