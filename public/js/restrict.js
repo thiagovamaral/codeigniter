@@ -260,6 +260,55 @@ $(function() {
 		}
 	});
 
+	function active_btn_user() {
+		
+		$(".btn-edit-user").click(function(){
+			$.ajax({
+				type: "POST",
+				url: BASE_URL + "restrict/ajax_get_user_data",
+				dataType: "json",
+				data: {"user_id": $(this).attr("user_id")},
+				success: function(response) {
+					clearErrors();
+					$("#form_user")[0].reset();
+					$.each(response["input"], function(id, value) {
+						$("#"+id).val(value);
+					});
+					$("#modal_user").modal();
+				}
+			})
+		});
+
+		$(".btn-del-user").click(function(){
+			
+			user_id = $(this);
+			swal({
+				title: "Atenção!",
+				text: "Deseja deletar esse usuário?",
+				type: "warning",
+				showCancelButton: true,
+				confirmButtonColor: "#d9534f",
+				confirmButtonText: "Sim",
+				cancelButtontext: "Não",
+				closeOnConfirm: true,
+				closeOnCancel: true,
+			}).then((result) => {
+				if (result.value) {
+					$.ajax({
+						type: "POST",
+						url: BASE_URL + "restrict/ajax_delete_user_data",
+						dataType: "json",
+						data: {"user_id": user_id.attr("user_id")},
+						success: function(response) {
+							swal("Sucesso!", "Ação executada com sucesso", "success");
+							dt_user.ajax.reload();
+						}
+					})
+				}
+			})
+		});
+	}
+
 	var dt_user = $("#dt_users").DataTable({
 		"autoWidth": false,
 		"serverSide": true,
@@ -270,6 +319,9 @@ $(function() {
 		"columnDefs": [
 			{ targets: "no-sort", orderable: false },
 			{ targets: "dt-center", className: "dt-center" },
-		]
+		],
+		"drawCallback": function() {
+			active_btn_user();
+		}
 	});
 })

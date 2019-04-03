@@ -10,7 +10,6 @@ class Restrict extends CI_Controller{
 	}
 
 	public function index(){
-
 		if ($this->session->userdata("user_id")) {
 			$data = array(
 				"styles" => array(
@@ -514,6 +513,22 @@ class Restrict extends CI_Controller{
 		$this->load->model("team_model");
 		$member_id = $this->input->post("member_id");
 		$this->team_model->delete($member_id);
+
+		echo json_encode($json);
+	}
+
+	public function ajax_delete_user_data() {
+
+		if (!$this->input->is_ajax_request()) {
+			exit("Nenhum acesso de script direto permitido!");
+		}
+
+		$json = array();
+		$json["status"] = 1;
+
+		$this->load->model("users_model");
+		$user_id = $this->input->post("user_id");
+		$this->users_model->delete($user_id);
 
 		echo json_encode($json);
 	}
