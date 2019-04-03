@@ -32,6 +32,7 @@
 				<div class="container-fluid">
 					<h2 class="text-center"><strong>Gerenciar Cursos</strong></h2>
 					<a id="btn_add_course" class="btn btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;Adicionar Curso</i></a>
+					<p></p>
 					<table id="dt_courses" class="table table-striped table-bordered">
 						<thead>
 							<tr class="tableheader">
@@ -52,6 +53,7 @@
 				<div class="container-fluid">
 					<h2 class="text-center"><strong>Gerenciar Equipe</strong></h2>
 					<a id="btn_add_member" class="btn btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;Adicionar Membro</i></a>
+					<p></p>
 					<table id="dt_team" class="table table-striped table-bordered">
 						<thead>
 							<tr class="tableheader">
@@ -71,6 +73,7 @@
 				<div class="container-fluid">
 					<h2 class="text-center"><strong>Gerenciar Usuários</strong></h2>
 					<a id="btn_add_user" class="btn btn-primary"><i class="fa fa-plus">&nbsp;&nbsp;Adicionar Usuário</i></a>
+					<p></p>
 					<table id="dt_users" class="table table-striped table-bordered">
 						<thead>
 							<tr class="tableheader">

@@ -125,4 +125,19 @@ $(function() {
 
 		return false;
 	});
+
+	var dt_course = $("#dt_courses").DataTable({
+		
+		"autoWidth": false,
+		
+		"serverSide": true,
+		"ajax": {
+			"url": BASE_URL + "restrict/ajax_list_course",
+			"type": "POST",
+		},
+		"columnDefs": [
+			{ targets: "no-sort", orderable: false },
+			{ targets: "dt-center", className: "dt-center" },
+		]
+	});
 })
