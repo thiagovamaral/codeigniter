@@ -177,9 +177,9 @@ $(function() {
 	}
 
 	var dt_course = $("#dt_courses").DataTable({
-		
+		"oLanguage": DATATABLE_PTBR,
 		"autoWidth": false,
-		
+		"processing": true,
 		"serverSide": true,
 		"ajax": {
 			"url": BASE_URL + "restrict/ajax_list_course",
@@ -245,7 +245,9 @@ $(function() {
 	}
 
 	var dt_member = $("#dt_team").DataTable({
+		"oLanguage": DATATABLE_PTBR,
 		"autoWidth": false,
+		"processing": true,
 		"serverSide": true,
 		"ajax": {
 			"url": BASE_URL + "restrict/ajax_list_member",
@@ -310,7 +312,9 @@ $(function() {
 	}
 
 	var dt_user = $("#dt_users").DataTable({
+		"oLanguage": DATATABLE_PTBR,
 		"autoWidth": false,
+		"processing": true,
 		"serverSide": true,
 		"ajax": {
 			"url": BASE_URL + "restrict/ajax_list_user",
